@@ -27,14 +27,14 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: MYSQL_URL
+            - name: DATABASE_URL
               value: "jdbc:mysql://my-sql-server:3306/mydb"
-            - name: MYSQL_USERNAME
+            - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: mysql-secret
                   key: mysql-username
-            - name: MYSQL_PASSWORD
+            - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef: 
                   name: mysql-secret
