@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the jar file from target to the working directory
-COPY target/tutorial-0.0.1-SNAPSHOT.jar productService.jar
+COPY target/crud-v1.jar crud-v1.jar
 
 # Expose the port on which the application will run
 EXPOSE 8081
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "productService.jar"]
+ENTRYPOINT ["java", "-jar", "crud-v1.jar"]
