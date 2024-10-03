@@ -2,11 +2,9 @@ version: '3.8'
 
 services:
   auth-service:
-    build:
-      context: ./authService
-    image: auth-service:latest
+    image: csag095/csag095-auth-service:latest  
     environment:
-      - DATABASE_URL=jdbc:mysql://mysql-db:3306/auth_service_db
+      - DATABASE_URL=jdbc:mysql://mysql-db:3306/service_db
       - DATABASE_USERNAME=admin
       - DATABASE_PASSWORD=admin
     ports:
@@ -15,11 +13,9 @@ services:
       - mysql-db
 
   product-service:
-    build:
-      context: ./
-    image: product-service:latest
+    image: csag095/csag095-product-service:latest  
     environment:
-      - DATABASE_URL=jdbc:mysql://mysql-db:3306/product_service_db
+      - DATABASE_URL=jdbc:mysql://mysql-db:3306/service_db
       - DATABASE_USERNAME=admin
       - DATABASE_PASSWORD=admin
     ports:
@@ -31,10 +27,9 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_DATABASE: auth_service_db
+      MYSQL_DATABASE: service_db
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       MYSQL_ROOT_PASSWORD: admin
     ports:
       - "3306:3306"
-
